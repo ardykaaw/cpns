@@ -402,6 +402,9 @@ class DatabaseSeeder extends Seeder
             'is_passed' => false, // TWK < 65
             'answers' => [0 => 2, 1 => 0],
             'time_spent_seconds' => 5200,
+            'completed_at' => now()->subDays(6),
+        ]);
+
         // Call dedicated seeders for 21 modules and 110 full national exam questions
         $this->call([
             SkdPackageSeeder::class,
