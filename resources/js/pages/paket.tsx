@@ -16,12 +16,14 @@ import {
 import AppLayout from '@/layouts/app-layout';
 import type { SharedData } from '@/types';
 
+// URL etalase resmi toko Lynk.id (dapat disesuaikan tautan resminya nanti)
+const LYNK_ID_STORE_URL = 'https://lynk.id';
+
 const lynkProducts = [
     {
         id: 'skd',
         name: 'Akses Mandiri SKD',
         desc: 'Akses penuh latihan dan simulasi CAT BKN untuk Seleksi Kompetensi Dasar.',
-        price: 49000,
         badge: null,
         color: '#0EA5A0',
         features: [
@@ -37,7 +39,6 @@ const lynkProducts = [
         id: 'komplit',
         name: 'Akses Komplit SKD & SKB',
         desc: 'Pilihan paling diminati pejuang NIP dengan materi video & ribuan bank soal.',
-        price: 99000,
         badge: 'REKOMENDASI TERBAIK',
         color: '#F0A500',
         features: [
@@ -53,7 +54,6 @@ const lynkProducts = [
         id: 'vip',
         name: 'Akses VIP Mentoring',
         desc: 'Bimbingan intensif tatap muka daring sampai pengumuman NIP resmi.',
-        price: 199000,
         badge: 'VIP BUNDLE',
         color: '#8B5CF6',
         features: [
@@ -271,17 +271,21 @@ export default function PaketPage() {
                                         </p>
                                     </div>
 
-                                    {/* Price tag */}
+                                    {/* Lynk.id Price & Checkout Notice */}
                                     <div className="mb-5 p-4 rounded-xl bg-background border border-border">
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="font-mono text-xs text-muted-foreground">Rp</span>
-                                            <span className="font-mono text-2xl font-bold text-foreground">
-                                                {plan.price.toLocaleString('id-ID')}
+                                        <div className="flex items-center justify-between mb-1">
+                                            <span className="text-xs font-mono font-bold text-[#F0A500] uppercase tracking-wider">
+                                                Etalase Lynk.id
                                             </span>
-                                            <span className="text-[11px] text-[#10B981] font-semibold ml-1">/ Sekali Bayar</span>
+                                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#10B981]/15 text-[#10B981] font-bold">
+                                                One-Time
+                                            </span>
                                         </div>
-                                        <p className="text-[11px] text-muted-foreground mt-1">
-                                            Akses aktif selamanya tanpa biaya bulanan
+                                        <p className="text-sm font-semibold text-foreground mt-1">
+                                            Cek Harga & Promo Resmi
+                                        </p>
+                                        <p className="text-xs text-muted-foreground mt-0.5">
+                                            Akses aktif selamanya sekali bayar di Lynk.id
                                         </p>
                                     </div>
 
@@ -300,7 +304,7 @@ export default function PaketPage() {
                                     </div>
 
                                     <a
-                                        href="https://lynk.id"
+                                        href={LYNK_ID_STORE_URL}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={`w-full py-3 rounded-xl font-bold text-xs text-center transition-all flex items-center justify-center gap-1.5 ${
@@ -309,7 +313,7 @@ export default function PaketPage() {
                                                 : 'border border-border bg-background text-foreground hover:border-[#F0A500]'
                                         }`}
                                     >
-                                        <span>Beli di Etalase Lynk.id</span>
+                                        <span>Buka Etalase Lynk.id →</span>
                                         <ExternalLink className="size-3.5" />
                                     </a>
                                 </div>

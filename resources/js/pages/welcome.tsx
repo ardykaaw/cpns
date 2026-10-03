@@ -177,13 +177,14 @@ const testimonials = [
     },
 ];
 
+// URL etalase resmi toko Lynk.id (dapat disesuaikan tautan resminya nanti)
+const LYNK_ID_STORE_URL = 'https://lynk.id';
+
 const plans = [
     {
         id: 'free',
         name: 'Demo Gratis',
         desc: 'Untuk mencoba format ujian CAT BKN dan simulasi awal.',
-        price: 0,
-        priceNote: 'Akses Uji Coba',
         badge: null,
         color: '#6B7BA4',
         features: [
@@ -199,8 +200,6 @@ const plans = [
         id: 'basic',
         name: 'Akses Mandiri SKD',
         desc: 'Fondasi penting pejuang CPNS mandiri dengan bank soal lengkap.',
-        price: 49000,
-        priceNote: 'Sekali Bayar • Akses Selamanya',
         badge: null,
         color: '#0EA5A0',
         features: [
@@ -216,8 +215,6 @@ const plans = [
         id: 'pro',
         name: 'Akses Komplit SKD & SKB',
         desc: 'Pilihan paling populer dengan fitur terlengkap kisi-kisi BKN.',
-        price: 99000,
-        priceNote: 'Sekali Bayar • Paling Rekomendasi',
         badge: 'REKOMENDASI TERBAIK',
         color: '#F0A500',
         features: [
@@ -233,8 +230,6 @@ const plans = [
         id: 'premium',
         name: 'Akses VIP Mentoring',
         desc: 'Bimbingan intensif tatap muka daring sampai pengumuman NIP resmi.',
-        price: 199000,
-        priceNote: 'Sekali Bayar • Full VIP',
         badge: 'VIP BUNDLE',
         color: '#8B5CF6',
         features: [
@@ -944,21 +939,21 @@ export default function Welcome() {
                                         </p>
                                     </div>
 
-                                    {/* Price tag */}
+                                    {/* Lynk.id Price & Access Notice */}
                                     <div className="mb-6 p-4 rounded-xl bg-[#0B1023] border border-[#1E2C4A]">
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="font-mono text-sm text-[#94A3C4]">Rp</span>
-                                            <span className="font-mono text-3xl font-bold text-[#EDF0FF]">
-                                                {plan.price.toLocaleString('id-ID')}
+                                        <div className="flex items-center justify-between mb-1">
+                                            <span className="text-[11px] font-mono text-[#F0A500] font-bold uppercase tracking-wider">
+                                                Etalase Lynk.id
                                             </span>
-                                            {plan.price > 0 ? (
-                                                <span className="text-[11px] text-[#10B981] font-semibold ml-1">/ sekali bayar</span>
-                                            ) : (
-                                                <span className="text-[11px] text-[#94A3C4] font-medium ml-1">/ gratis</span>
-                                            )}
+                                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#10B981]/15 text-[#10B981] font-bold">
+                                                {plan.id === 'free' ? 'Gratis' : 'One-Time'}
+                                            </span>
                                         </div>
-                                        <p className="text-[11px] text-[#6B7BA4] mt-1 font-mono">
-                                            {plan.priceNote}
+                                        <p className="text-xs text-[#EDF0FF] font-semibold">
+                                            {plan.id === 'free' ? 'Akses Uji Coba Terbuka' : 'Cek Harga & Promo Resmi'}
+                                        </p>
+                                        <p className="text-[11px] text-[#6B7BA4] mt-0.5">
+                                            {plan.id === 'free' ? 'Daftar dan coba langsung' : 'Pembayaran & aktivasi instan di Lynk.id'}
                                         </p>
                                     </div>
 
@@ -985,7 +980,7 @@ export default function Welcome() {
                                         </Link>
                                     ) : (
                                         <a
-                                            href="https://lynk.id"
+                                            href={LYNK_ID_STORE_URL}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className={`w-full py-3 rounded-xl font-bold text-xs text-center transition-all flex items-center justify-center gap-1.5 ${
@@ -994,7 +989,7 @@ export default function Welcome() {
                                                     : 'border border-[#1E2C4A] bg-[#0B1023] text-[#EDF0FF] hover:border-[#F0A500]'
                                             }`}
                                         >
-                                            <span>Beli di Lynk.id</span>
+                                            <span>Lihat di Etalase Lynk.id →</span>
                                             <ExternalLink className="size-3.5" />
                                         </a>
                                     )}
