@@ -21,10 +21,19 @@ class MateriController extends Controller
             ->latest()
             ->get()
             ->map(function ($m) {
+                $code = strtoupper($m->category->code ?? 'MANAJERIAL');
+                $katMap = [
+                    'POTENSI' => 'potensi',
+                    'MANAJERIAL' => 'manajerial',
+                    'DIGITAL' => 'digital',
+                    'KARIR' => 'karir',
+                ];
+                $kat = $katMap[$code] ?? strtolower($code);
+
                 return [
                     'id' => $m->id,
-                    'kat' => strtolower($m->category->code ?? 'twk'),
-                    'category_code' => $m->category->code ?? 'TWK',
+                    'kat' => $kat,
+                    'category_code' => $code,
                     'category_name' => $m->category->name ?? '',
                     'judul' => $m->title,
                     'slug' => $m->slug,

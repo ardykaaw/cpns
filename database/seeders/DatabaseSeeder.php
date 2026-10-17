@@ -405,10 +405,11 @@ class DatabaseSeeder extends Seeder
             'completed_at' => now()->subDays(6),
         ]);
 
-        // Call dedicated seeders for 21 modules and 110 full national exam questions
+        // Call dedicated seeders for 21 modules, 110 national exam questions, and Profiling ASN
         $this->call([
             SkdPackageSeeder::class,
             FullSkd110QuestionsSeeder::class,
+            ProfilingAsnSeeder::class,
         ]);
     }
 }

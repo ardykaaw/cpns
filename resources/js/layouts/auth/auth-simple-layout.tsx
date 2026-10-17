@@ -18,7 +18,7 @@ export default function AuthSimpleLayout({
             {/* Top Bar with Back Link */}
             <div className="relative z-10 w-full max-w-6xl mx-auto flex items-center justify-between py-2">
                 <Link
-                    href={home()}
+                    href="/"
                     className="inline-flex items-center gap-2 text-xs font-semibold text-[#8FA0C0] hover:text-[#EDF0FF] transition-colors py-1 px-3 rounded-lg hover:bg-[#1E2C4A]/40"
                 >
                     <ArrowLeft className="size-4" />
@@ -35,7 +35,7 @@ export default function AuthSimpleLayout({
             <div className="relative z-10 w-full max-w-md mx-auto my-auto py-8">
                 {/* Brand Header */}
                 <div className="flex flex-col items-center text-center mb-6">
-                    <Link href={home()} className="flex items-center gap-2 mb-4 group">
+                    <Link href="/" className="flex items-center gap-2 mb-4 group">
                         <AppLogo />
                     </Link>
                     <h1 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#EDF0FF]">

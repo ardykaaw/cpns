@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::inertia('/', 'welcome')->name('home');
 
 // Member Routes
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('tryout', [TryoutController::class, 'index'])->name('tryout');
     Route::post('tryout', [TryoutController::class, 'store'])->name('tryout.store');
@@ -22,7 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // Administrator Routes
-Route::middleware(['auth', 'verified', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     
     // Questions Management
